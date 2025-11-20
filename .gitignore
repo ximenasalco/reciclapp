@@ -78,3 +78,8 @@ logs/
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Python virtual environment
+infrastructure/pulumi/venv/
+venv/
+**/venv/
