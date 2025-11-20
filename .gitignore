@@ -1,0 +1,80 @@
+###############################################
+# FRONTEND (Vite + React)
+###############################################
+
+# Node dependencies
+frontend/node_modules/
+
+# Vite build output
+frontend/dist/
+frontend/build/
+
+# Env files (nunca deben subirse)
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Logs
+frontend/*.log
+
+
+###############################################
+# BACKEND (Node / Express)
+###############################################
+
+# Node dependencies
+backend/node_modules/
+
+# Build/transpiled output
+backend/dist/
+
+# Environment variables
+backend/.env
+backend/.env.local
+backend/.env.*.local
+
+backend/*.log
+
+
+###############################################
+# TERRAFORM (Infrastructure)
+###############################################
+
+# Local terraform state
+infrastructure/.terraform/
+
+# Terraform state files
+infrastructure/*.tfstate
+infrastructure/*.tfstate.backup
+
+# Crash logs
+infrastructure/crash.log
+infrastructure/crash.*.log
+
+
+###############################################
+# GENERAL (para todo el proyecto)
+###############################################
+
+# Node global ignore
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# macOS system files
+.DS_Store
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Optional lockfiles
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
