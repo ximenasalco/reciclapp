@@ -1,0 +1,105 @@
+{
+  "template": {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "name": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "sku": {
+        "type": "string"
+      },
+      "skucode": {
+        "type": "string"
+      },
+      "repositoryUrl": {
+        "type": "string"
+      },
+      "branch": {
+        "type": "string"
+      },
+      "repositoryToken": {
+        "type": "securestring"
+      },
+      "appLocation": {
+        "type": "string"
+      },
+      "apiLocation": {
+        "type": "string"
+      },
+      "appArtifactLocation": {
+        "type": "string"
+      },
+      "enterpriseGradeCdnStatus": {
+        "type": "string"
+      }
+    },
+    "resources": [
+      {
+        "apiVersion": "2022-09-01",
+        "name": "[parameters('name')]",
+        "type": "Microsoft.Web/staticSites",
+        "location": "[parameters('location')]",
+        "tags": {},
+        "properties": {
+          "deploymentAuthPolicy": "DeploymentToken",
+          "repositoryUrl": "[parameters('repositoryUrl')]",
+          "branch": "[parameters('branch')]",
+          "repositoryToken": "[parameters('repositoryToken')]",
+          "buildProperties": {
+            "appLocation": "[parameters('appLocation')]",
+            "apiLocation": "[parameters('apiLocation')]",
+            "appArtifactLocation": "[parameters('appArtifactLocation')]"
+          },
+          "enterpriseGradeCdnStatus": "[parameters('enterpriseGradeCdnStatus')]"
+        },
+        "sku": {
+          "Tier": "[parameters('sku')]",
+          "Name": "[parameters('skuCode')]"
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "name": {
+        "value": "staticWebEcoscan"
+      },
+      "location": {
+        "value": "centralus"
+      },
+      "sku": {
+        "value": "Free"
+      },
+      "skucode": {
+        "value": "Free"
+      },
+      "repositoryUrl": {
+        "value": "https://github.com/ximenasalco/reciclapp"
+      },
+      "branch": {
+        "value": "main"
+      },
+      "repositoryToken": {
+        "value": null
+      },
+      "appLocation": {
+        "value": "/"
+      },
+      "apiLocation": {
+        "value": ""
+      },
+      "appArtifactLocation": {
+        "value": "/"
+      },
+      "enterpriseGradeCdnStatus": {
+        "value": "disabled"
+      }
+    }
+  }
+}
