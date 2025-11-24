@@ -1,3 +1,6 @@
-name: eco-scan
-runtime: python
-description: Infraestructura de EcoScan en Azure
+name: reciclapp
+runtime:
+  name: nodejs
+  options:
+    typescript: true
+description: Infraestructura de Azure para Reciclapp (Static Web, Blob, PostgreSQL y App Service)

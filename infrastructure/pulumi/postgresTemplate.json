@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverName": { "type": "string" },
+    "location": { "type": "string" },
+    "administratorLogin": { "type": "string" },
+    "administratorLoginPassword": { "type": "securestring" },
+    "version": { "type": "string" },
+    "storageSizeGB": { "type": "int" }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+      "apiVersion": "2023-06-01",
+      "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_B1ms",
+        "tier": "Burstable"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "version": "[parameters('version')]",
+        "storage": {
+          "storageSizeGB": "[parameters('storageSizeGB')]"
+        },
+        "backup": {
+          "backupRetentionDays": 7,
+          "geoRedundantBackup": "Disabled"
+        },
+        "network": {
+          "publicNetworkAccess": "Enabled"
+        },
+        "highAvailability": {
+          "mode": "Disabled"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+      "apiVersion": "2023-06-01",
+      "name": "[concat(parameters('serverName'), '/AllowAll')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('serverName'))]"
+      ],
+      "properties": {
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "0.0.0.0"
+      }
+    }
+  ]
+}

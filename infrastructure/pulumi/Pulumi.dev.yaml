@@ -1,2 +1,4 @@
 config:
   azure-native:location: westus2
+  reciclapp:dbPassword:
+    secure: AAABAO23dDM2BacMkfIQwUPCTyWuAxdRBKx05NW+TIMpUEVwOq0jQx6h
