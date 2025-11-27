@@ -63,5 +63,5 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "reciclapp-backende7c1c58a"
+          app-name: "reciclapp-backend42bf0c5b"
           package: backend.zip
