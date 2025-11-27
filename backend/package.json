@@ -6,13 +6,13 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node src/server.js",
+    "postinstall": "prisma generate",
     "check-db": "node src/check-db.js",
     "seed": "node src/seed.js",
     "update-images": "node src/update-images.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prisma:studio": "prisma studio"
   },
   "keywords": [],
   "author": "",
